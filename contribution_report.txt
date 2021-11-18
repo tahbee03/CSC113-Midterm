@@ -1,0 +1,14 @@
+(NOTE: Use to briefly describe the parts you have worked on.
+Submit with main Python file.)
+
+DEEPANKAR
+- ...
+
+RAYNEL
+- ...
+
+SUHAIMA
+- ...
+
+TALIKE
+- ...
