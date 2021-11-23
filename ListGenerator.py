@@ -1,8 +1,13 @@
 '''
 CSC 113 MIDTERM PROJECT
 
-LIST GENERATOR
+GROUP MEMBERS:
+- Talike Bennett
+- Deepankar Chakraborty
+- Suhaima Islam
+- Raynel Sanchez
 
+LIST GENERATOR
 '''
 
 def list_generator(RA) :
