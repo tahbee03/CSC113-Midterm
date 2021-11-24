@@ -1,9 +1,12 @@
 # CSC 113 MIDTERM PROJECT
+#
 # GROUP MEMBERS:
 #   Talike Bennett
 #   Deepankar Chakraborty
 #   Suhaima Islam
 #   Raynel Sanchez
+#
+# FUNCTIONS 1 AND 2
 
 def func1(num_list, range_list): # FIX?
     N = len(num_list)
