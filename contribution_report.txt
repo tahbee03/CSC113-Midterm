@@ -2,13 +2,20 @@
 Submit with main Python file.)
 
 DEEPANKAR
-- ...
+- implemented Verification 1 program*
+- implemented Verification 2 program*
 
 RAYNEL
-- ...
+- implemented Verification 1 program*
+- implemented Verification 2 program*
 
 SUHAIMA
-- ...
+- defined and tested List Generator function*
+- implemented Verification Program*
 
 TALIKE
-- ...
+- defined and tested Function 1
+- defined and tested Function 2
+- modified functions to print timestamps when called*
+
+*currently in progress
