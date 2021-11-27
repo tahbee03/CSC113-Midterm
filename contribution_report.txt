@@ -1,5 +1,4 @@
-(NOTE: Use to briefly describe the parts you have worked on.
-Submit with main Python file.)
+(NOTE: Use to briefly describe the parts you have worked on. Submit with main Python file.)
 
 DEEPANKAR
 - implemented Verification 1 program*
@@ -10,7 +9,7 @@ RAYNEL
 - implemented Verification 2 program*
 
 SUHAIMA
-- defined and tested List Generator function*
+- defined and tested List Generator function
 - implemented Verification Program*
 
 TALIKE
