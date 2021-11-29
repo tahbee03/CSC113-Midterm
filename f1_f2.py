@@ -8,7 +8,14 @@
 #
 # FUNCTIONS 1 AND 2
 
-def fill_array(size, array, range_array):
+# NOTE: Timestamp printing derived from
+# GeeksforGeeks (https://www.geeksforgeeks.org/time-process_time-function-in-python/)
+from time import process_time_ns
+
+
+def fill_array(size, array, range_array): # Fills the number array with user input
+    start_time = process_time_ns()
+    
     for i in range(1, size + 1):
         prompt = "Element " + str(i) + ": "
         temp = int(input(prompt))
@@ -19,15 +26,27 @@ def fill_array(size, array, range_array):
             temp = int(input(prompt))
         array.append(temp)
         
+    end_time = process_time_ns()
+    time_elapsed = end_time - start_time
+    print("[fill_array() Process Time:", time_elapsed, "ns]") # Prints the process time of fill_array()
         
-def fill_range_array(size, array):
+        
+def fill_range_array(size, array): # Fills the range array with user input
+    start_time = process_time_ns()
+    
     for i in range(1, size + 1):
         prompt = "Element " + str(i) + ": "
         temp = int(input(prompt))
         array.append(temp)
         
+    end_time = process_time_ns()
+    time_elapsed = end_time - start_time
+    print("[fill_range_array() Process Time:", time_elapsed, "ns]") # Prints the process time of fill_range_array()
+        
 
-def func1(num_list, range_list): # FIX?
+def func1(num_list, range_list): # Converts a list of numbers into its equivalent integer address
+    start_time = process_time_ns()
+    
     N = len(num_list)
     address = 0
 
@@ -36,20 +55,29 @@ def func1(num_list, range_list): # FIX?
         for j in range(i + 1, N):
             temp *= range_list[j]
         address += temp
+        
+    end_time = process_time_ns()
+    time_elapsed = end_time - start_time
+    print("[Function 1 Process Time:", time_elapsed, "ns]") # Prints the process time of func1()
 
     return address
 
 
-def func2(address, range_list): # FIX?
+def func2(address, range_list): # Converts an integer address into its equivalent list of numbers
+    start_time = process_time_ns()
+    
     N = len(range_list)
     num_list = []
-
     for i in range(0, N):
         num_list.append(0)
 
     for i in range(N - 1, -1, -1):
         num_list[i] = address % range_list[i]
         address //= range_list[i]
+        
+    end_time = process_time_ns()
+    time_elapsed = end_time - start_time
+    print("[Function 2 Process Time:", time_elapsed, "ns]") # Prints the process time of func2()
 
     return num_list
 
