@@ -1,15 +1,3 @@
-"""
-CSC 113 MIDTERM PROJECT
-
-GROUP MEMBERS:
-    Talike Bennett
-    Deepankar Chakraborty
-    Suhaima Islam
-    Raynel Sanchez
-
-* NumPy information: https://numpy.org/doc/stable/reference/generated/numpy.array.html
-* Timestamp derivation: https://www.geeksforgeeks.org/time-process_time-function-in-python/
-"""
 from time import process_time_ns
 import numpy as np
 
@@ -49,7 +37,7 @@ def fill_range_array(size, array):  # Fills the range array with user input
     return array
 
 
-def func1(num_list, range_list):  # Converts a list of numbers into its equivalent integer address
+def func1(num_list, range_list):  # Converts a list of numbers into its equivalent integer address; list--> address
     start_time = process_time_ns()
 
     N = len(num_list)
@@ -68,7 +56,7 @@ def func1(num_list, range_list):  # Converts a list of numbers into its equivale
     return address
 
 
-def func2(address, range_list):  # Converts an integer address into its equivalent list of numbers
+def func2(address, range_list):  # Converts an integer address into its equivalent list of numbers;  address -> list
     start_time = process_time_ns()
 
     N = len(range_list)
@@ -116,8 +104,23 @@ def list_generator(range_list):  # Returns all the lists associated with the giv
 
 
 # verification 1 (list -> address -> list)
+def verif1(array, rangea):
+    if (np.array_equal(array,func2(func1(array, rangea), rangea))):
+        return True
+    else:
+        return False
+        
 # verification 2 (address -> list -> address)
+def verif2(address, rangea):
+    if (address == -1):
+        return False
+    elif (address == func1(func2(address, rangea), rangea)):
+        return True
+    else:
+        return False
 
+A = np.array([3,4,5], dtype=int)
+RA = np.array([4,5,6], dtype=int)
 A = np.array([], dtype=int)
 RA = np.array([], dtype=int)
 
@@ -154,3 +157,10 @@ print("All possible number lists for", RA, ":")
 for i in range(len(all_lists)):
     print(all_lists[i])
 
+print()
+print("Verification 1: Performs the verification between the list -> address -> list")
+print(verif1(A,RA))
+
+print()
+print("Verification 2: Performs the verification between the address -> list -> address")
+print(verif2(func1(A, RA),RA))
