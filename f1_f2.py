@@ -11,7 +11,7 @@
 # NOTE: Timestamp printing derived from
 # GeeksforGeeks (https://www.geeksforgeeks.org/time-process_time-function-in-python/)
 from time import process_time_ns
-
+import numpy as np
 
 def fill_array(size, array, range_array): # Fills the number array with user input
     start_time = process_time_ns()
@@ -81,6 +81,59 @@ def func2(address, range_list): # Converts an integer address into its equivalen
 
     return num_list
 
+def generateMaxN(rangea):
+    maxN = 1
+    for i in rangea:
+        maxN *= i
+    return maxN
+
+def generateArray(rangeA, N):
+    newList = np.array([])
+    if (N < generateMaxN(rangeA)):
+        for i in range(len(rangeA) - 1, -1, -1):
+            newList = np.insert(newList, 0, int(N % rangeA[i]))
+            N //= int(rangeA[i])
+        return newList.astype(int)
+    else:
+        return 0
+
+def listGenerator(rangeA1):
+    start_time = process_time_ns()
+    
+    allArrays = np.array([])
+    for i in range (0, generateMaxN(rangeA1)):
+        allArrays = np.append(allArrays, [generateArray(rangeA1, i)])
+    return allArrays.reshape(generateMaxN(rangeA1),len(rangeA1)).astype(int)
+    
+    end_time = process_time_ns()
+    time_elapsed = end_time - start_time
+    print("[List Generator Process Time:", time_elapsed, "ns]") # Prints the process time of list generator
+
+def printAllArrays(rangea):
+    newArray = np.array(listGenerator(rangea))
+    for i in range (0,len(newArray)):
+        print(newArray[i])
+
+def verif1(array, rangea):
+    if (np.array_equal(array,func2(func1(array, rangea), rangea))):
+        return True
+    else:
+        return False
+
+def verif2(N, rangea):
+    if (N == -1):
+        return False
+    elif (N == func1(func2(N, rangea), rangea)):
+        return True
+    else:
+        return False
+
+def verifAll(rangea):
+    newArray = np.array(listGenerator(rangea))
+    for i in range (0, len(newArray)):
+        if (verif1(newArray[i], rangea) == False) or (verif2(i, rangea) == False):
+            return False
+    return True
 
 A = []
 RA = []
@@ -102,3 +155,11 @@ print("Range Array:", RA)
 address = func1(A, RA)
 print("Array -> Linear Address:", A, "->", address)
 print("Linear Address -> Array:", address, "->", func2(address, RA))
+
+print('\nFor A and Range Array:')
+print('\tVerif1 return value:', verif1(A,RA))
+print('\tVerif2 return value:', verif2(func1(A,RA),RA),'\n')
+print('For all possible arrays within range:')
+print('\tVerification for all:', verifAll(RA),'\n')
+print('All possible arrays within range')
+printAllArrays(RA)
