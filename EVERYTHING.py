@@ -71,9 +71,7 @@ def verif1(array, rangea):
 
 # verification 2 (address -> list -> address)
 def verif2(address, rangea):
-    if (address == -1):
-        return False
-    elif (address == func1(func2(address, rangea), rangea)):
+    if (address == func1(func2(address, rangea), rangea)):
         return True
     else:
         return False
