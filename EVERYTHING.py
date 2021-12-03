@@ -89,8 +89,7 @@ def verifAll2(array, rangea):
             return False
     return True
 
-A = np.array([3, 4, 5], dtype=int)
-RA = np.array([4, 5, 6], dtype=int)
+
 A = np.array([], dtype=int)
 RA = np.array([], dtype=int)
 
